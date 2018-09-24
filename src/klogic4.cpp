@@ -201,7 +201,7 @@ void klogic4::setupActions()
     // Iterations are not welcome here somehow.. Always the same stupid code.. And grouping by hand??
     QActionGroup *functionActionGroup = new QActionGroup(this);
     action = new KAction(KIcon("klogic4-fSELECT"), i18n("&Selection Mode"), this);
-    //action->setShortcut(Qt::CTRL + Qt::Key_S);
+    action->setShortcut(Qt::Key_S);
     action->setToolTip("Select, copy and paste groups of devices and wires.");
     action->setCheckable(true);
     actionCollection()->addAction("actionSelectionMode", action);
@@ -320,15 +320,15 @@ void klogic4::setupActions()
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fBUS()));
 
-    action = new KAction(KIcon("klogic4-fOSC.png"), i18n("Os&cillator"), this);
+    action = new KAction(KIcon("klogic4-fOSC.png"), i18n("Oscillator"), this);
     //action->setShortcut(Qt::Key_C);
     action->setCheckable(true);
     actionCollection()->addAction("actionfOSC", action);
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fOSC()));
 
-    action = new KAction(KIcon("klogic4-fSWI.png"), i18n("&Switch"), this);
-    action->setShortcut(Qt::Key_S);
+    action = new KAction(KIcon("klogic4-fSWI.png"), i18n("S&witch"), this);
+    action->setShortcut(Qt::Key_W);
     action->setCheckable(true);
     actionCollection()->addAction("actionfSWI", action);
     functionActionGroup->addAction(action);
@@ -355,7 +355,7 @@ void klogic4::setupActions()
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fPWR()));
 
-    action = new KAction(KIcon("klogic4-fTXT.png"), i18n("&Text"), this);
+    action = new KAction(KIcon("klogic4-fTXT.png"), i18n("Text"), this);
     action->setCheckable(true);
     actionCollection()->addAction("actionfTXT", action);
     functionActionGroup->addAction(action);
