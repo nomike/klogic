@@ -1,0 +1,24 @@
+Source: klogic
+Section: electronics
+Priority: optional
+Maintainer: Chris Boyle <cmb@debian.org>
+Build-Depends: debhelper (>= 7), kdelibs4-dev (>= 4:3.1.2-2), docbook-to-man, autotools-dev, chrpath
+Standards-Version: 3.8.3.0
+Homepage: http://www.a-rostin.de/
+
+Package: klogic
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: digital circuit editor and simulator for KDE
+ KLogic is an application for building and simulating digital circuits 
+ easily. 
+ .
+ It provides an easy way to build circuits containing standard 
+ components like AND, OR, XOR and flipflops like RS and JK. To build 
+ more complex and reusable circuits, you can create sub-circuits. 
+ .
+ The simulation runs permanently by default while building your 
+ circuits. For extended testing you can use a single stepping simulation 
+ to recognise peaks. You can display the signal flow of the components 
+ of a circuit as a graph. Each device of your circuit has a tunable 
+ delay. With the burst option the delay of all devices can be disabled. 

@@ -1,0 +1,106 @@
+#!/usr/bin/make -f
+# Based on sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+  COMPILER_FLAGS += CFLAGS="-O0 -g -Wall"
+else
+  COMPILER_FLAGS += CFLAGS="-O2 -g -Wall"
+endif
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	# configure the package
+	$(COMPILER_FLAGS) \
+	./configure --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info --disable-rpath
+
+	touch configure-stamp
+
+build: configure-stamp build-stamp
+build-stamp:
+	dh_testdir
+
+	# compile the package
+	$(MAKE)
+	/usr/bin/docbook-to-man debian/klogic.sgml > klogic.1
+
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp configure-stamp
+
+	# clean up after the build process.
+	[ ! -f Makefile ] || $(MAKE) distclean
+	rm -f klogic/.deps/*
+	rm -rf autom4te.cache
+
+	dh_clean
+	-test -r /usr/share/misc/config.sub && \
+	cp -f /usr/share/misc/config.sub admin/config.sub
+	-test -r /usr/share/misc/config.guess && \
+	cp -f /usr/share/misc/config.guess admin/config.guess
+
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	dh_installexamples examples/*.circuit
+
+	# install the package into debian/klogic.
+	$(MAKE) install prefix=$(CURDIR)/debian/klogic/usr
+	chrpath -d debian/klogic/usr/bin/klogic
+	mkdir -p debian/klogic/usr/share/applications
+	cp klogic/klogic.desktop debian/klogic/usr/share/applications
+	mkdir -p debian/klogic/usr/share/pixmaps
+	cp pics/klogic.xpm debian/klogic/usr/share/pixmaps
+
+# Build architecture-independent files
+binary-indep: build install
+# nothing to do
+
+# Build architecture-dependent files
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+#	dh_installdebconf	
+	dh_installdocs
+	dh_installexamples
+	dh_installmenu
+#	dh_installlogrotate
+#	dh_installemacsen
+#	dh_installpam
+#	dh_installmime
+#	dh_installinit
+#	dh_installcron
+	dh_installman klogic.1
+#	dh_installinfo
+#	dh_undocumented
+	dh_installchangelogs ChangeLog
+	mkdir $(CURDIR)/debian/klogic/usr/share/doc/kde
+	mv $(CURDIR)/debian/klogic/usr/share/doc/HTML $(CURDIR)/debian/klogic/usr/share/doc/kde
+	rm $(CURDIR)/debian/klogic/usr/share/doc/kde/HTML/en/klogic/common
+	rm $(CURDIR)/debian/klogic/usr/share/doc/klogic/changelog
+	dh_link
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+	dh_strip
+endif
+	dh_compress -X.docbook
+	dh_fixperms
+#	dh_makeshlibs
+	dh_installdeb
+#	dh_perl
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure

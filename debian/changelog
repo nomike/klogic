@@ -1,0 +1,181 @@
+klogic (1.63-6) unstable; urgency=low
+
+  * Fix FTBFS with GCC 4.4 and eglibc 2.10, thanks Simon Olofsson
+    (closes: #552574)
+  * Remove deprecated dh_desktop.
+  * Bump Standards-Version to 3.8.3.0.
+  * Remove rpath with chrpath because ./configure --disable-rpath seems to
+    be ignored.
+
+ -- Chris Boyle <cmb@debian.org>  Sat, 28 Nov 2009 12:43:27 +0000
+
+klogic (1.63-5) unstable; urgency=low
+
+  * Move DH_COMPAT into debian/compat.
+  * Bump Standards-Version to 3.8.1.0.
+  * Remove obsolete kderemove tag from menu file.
+  * Catch errors from make distclean.
+  * Build-dep on debhelper >= 7.
+  * Call dh_prep instead of dh_clean -k.
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 24 May 2009 18:33:50 +0100
+
+klogic (1.63-4) unstable; urgency=low
+
+  * Fix garbage in about window: put description where it won't be
+    freed. (closes: #499724)
+  * debian/watch: Fix homepage URL, bump to v3.
+  * debian/control: Add Homepage.
+  * Bump Standards-Version to 3.8.0.0.
+  * Clarify "Help/maintenance" menu item (it goes to stdout).
+  * Change menu section in line with new policy (Electronics).
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 24 May 2009 14:25:01 +0100
+
+klogic (1.63-3) unstable; urgency=low
+
+  * Fix .desktop and icon locations as in Ubuntu, oops, thanks William
+    Grant. (closes: #425216)
+  * Also don't create directories for the incorrect locations.
+  * Fix FTBFS if built twice in a row (remove .deps and autom4te.cache)
+    (closes: #424461)
+  * Bump Standards-Version to 3.7.2.2.
+  * Use debhelper compatibility level 5: add misc:Depends.
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 28 Oct 2007 10:51:56 +0000
+
+klogic (1.63-2) unstable; urgency=low
+
+  * Applied several fixes below from Ubuntu, thanks Martin Jürgens.
+  * Fixed broken xpm reference in index.docbook.
+  * Filled in and standardised klogic.desktop.
+  * Added two entries in debian/dirs.
+
+ -- Chris Boyle <cmb@debian.org>  Fri,  2 Feb 2007 22:54:51 +0000
+
+klogic (1.63-1) unstable; urgency=low
+
+  * New upstream release. (closes: #389059)
+  * Fix bad Build-Depends. (closes: #388865)
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 24 Sep 2006 20:06:02 +0100
+
+klogic (1.62-7) unstable; urgency=low
+
+  * Bumped Standards-Version to 3.7.2.0.
+  * Fixed spelling errors in description (thanks Simon Waters).
+    (closes: #364185)
+  * Installed upstream's example circuit files (thanks Miguel Gea Milvaques).
+    (closes: #360370)
+
+ -- Chris Boyle <cmb@debian.org>  Fri, 12 May 2006 15:39:24 +0100
+
+klogic (1.62-6) unstable; urgency=low
+
+  * Bumped Standards-Version to 3.6.2.0.
+  * Rebuild for new KDE libs (c2a).
+
+ -- Chris Boyle <cmb@debian.org>  Thu,  1 Dec 2005 20:02:24 +0000
+
+klogic (1.62-5) unstable; urgency=low
+
+  * Rebuild for Qt/KDE transition. (closes: #327976)
+
+ -- Chris Boyle <cmb@debian.org>  Tue, 13 Sep 2005 02:12:42 +0100
+
+klogic (1.62-4) unstable; urgency=low
+
+  * Argh. Actually add the build-dep on autotools-dev for that.
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 19 Jun 2005 23:50:04 +0100
+
+klogic (1.62-3) unstable; urgency=low
+
+  * Copy config.{guess,sub} to the right place this time. (closes: #303938)
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 19 Jun 2005 23:27:55 +0100
+
+klogic (1.62-2) unstable; urgency=low
+
+  * Exclude docbook file from compression because KDE help browser can't
+    handle it. (closes: #312414)
+  * German language corrections from Jens Seidel. (closes: #314024)
+  * Auto-update config.{guess,sub} from autotools-dev. (closes: #303938)
+  * Fix package name and version in configure to make i18n actually work.
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 19 Jun 2005 12:48:26 +0100
+
+klogic (1.62-1) unstable; urgency=medium
+
+  * New upstream release. (closes: #300524)
+  * Thanks for the NMU. Upstream have now made a similar change.
+    (closes: #246447)
+  * Add a watch file.
+
+ -- Chris Boyle <cmb@debian.org>  Sat,  2 Apr 2005 23:03:27 +0100
+
+klogic (1.5-5.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Avoid build problem on 64-bit archs. (Closes: #246447)
+
+ -- Petter Reinholdtsen <pere@debian.org>  Sat,  5 Jun 2004 20:13:46 +0200
+
+klogic (1.5-5) unstable; urgency=low
+
+  * Added build-dep on kdelibs-bin for meinproc.
+  * Use supplied klogic.desktop file for KDE to ensure docs are found.
+    (closes: #213027)
+  * Changed klogic.desktop to use klogic.xpm not klogic.png (which
+    does not exist).
+  * Bumped standards-version to 3.6.1.0
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 21 Mar 2004 17:03:53 +0000
+
+klogic (1.5-4) unstable; urgency=low
+
+  * Fix FTBFS with paranoid options, thanks Ronald Stigge <stigge@antcom.de>
+    (closes: #221059)
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 14 Dec 2003 17:48:42 +0000
+
+klogic (1.5-3) unstable; urgency=low
+
+  * Set kderemove="", to *really* make a menu item. Shame on me for not
+    checking properly. (closes: #199482) (still open due to next item)
+  * Frobbed pbuilder so it doesn't mangle my Maintainer field and make
+    everything think this is an NMU!
+  * Removed examples/Makefile, which was being added by the debian diff. 
+    How did *that* get there...
+
+ -- Chris Boyle <cmb@debian.org>  Wed,  9 Jul 2003 08:05:27 +0100
+
+klogic (1.5-2) unstable; urgency=low
+
+  * Set kderemove=0 in debian/menu, since on closer inspection, upstream
+    has chosen not to install the .desktop file in the source (perhaps 
+    since there isn't klogic.png or something). (closes: #199482)
+
+ -- Chris Boyle <cmb@debian.org>  Mon,  7 Jul 2003 23:21:49 +0100
+
+klogic (1.5-1) unstable; urgency=low
+
+  * New maintainer. (closes: #178907)
+    - The "yay at last all my (1st year) exams are over!" release.
+  * New upstream version.
+  * New policy version. (3.5.10, was 3.5.2)
+  * Added support for DEB_BUILD_OPTIONS.
+  * Changed section from utils to electronics.
+  * Changed menu section from Apps/Tools to Apps/Science.
+  * Building with pbuilder. This is good, I shouldn't get any missing
+    build-deps at all. :-)
+  * Added Build-Depends: kdelibs4-dev (>= 4:3.1.2-2), docbook-to-man
+
+ -- Chris Boyle <cmb@debian.org>  Sun, 15 Jun 2003 20:23:35 +0100
+
+klogic (1.3-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Matthias Kaehlcke <matthias.kaehlcke@gmx.net>  Thu, 18 Oct 2001 18:26:37 +0200
+

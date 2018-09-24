@@ -1,0 +1,15 @@
+This package was debianized by Matthias Kaehlcke <matthias.kaehlcke@gmx.net> on
+Thu, 18 Oct 2001 18:26:37 +0200.
+It is now maintained by Chris Boyle <cmb@debian.org>.
+
+It was downloaded from http://www.a-rostin.de/klogic/
+
+Upstream Author: Andreas Rostin andreas@a-rostin.de
+
+Copyright: This software is copyright (c) 2001 by Andreas Rostin
+
+You are free to distribute this software under the terms of
+the GNU General Public License.
+On Debian systems, the complete text of the GNU General Public
+License can be found in /usr/share/common-licenses/GPL file.
+
