@@ -10,4 +10,4 @@ IEC_NOT.xpm   Mid.xpm       pxJK.xpm        pxMatrix.xpm      pxSSs10.xpm  pxSSs
 IEC_OR.xpm    MONOFLOP.xpm  pxLED0blue.xpm  pxNEG.xpm         pxSSs11.xpm  pxSSs5.xpm   pxTFF.xpm
 )
 
-install(FILES ${klogic_ICONS} DESTINATION ${KDE4_DATA_INSTALL_DIR}/klogic/deviceIcons)
+install(FILES ${klogic_ICONS} DESTINATION ${DATA_INSTALL_DIR}/klogic/deviceIcons)
