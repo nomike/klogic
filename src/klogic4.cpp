@@ -321,7 +321,7 @@ void klogic4::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fBUS()));
 
     action = new KAction(KIcon("klogic4-fOSC.png"), i18n("Os&cillator"), this);
-    action->setShortcut(Qt::Key_C);
+    //action->setShortcut(Qt::Key_C);
     action->setCheckable(true);
     actionCollection()->addAction("actionfOSC", action);
     functionActionGroup->addAction(action);
