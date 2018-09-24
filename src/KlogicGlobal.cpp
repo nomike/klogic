@@ -12,8 +12,8 @@
 #include <KlogicGlobal.h>
 #include <kdeversion.h>
 
-const QString KlogicGlobal::Klogic::VERSION_STR = "4.0.2 2012-04-17";
-const char *KlogicGlobal::Klogic::VERSION = "4.0.2";
+const QString KlogicGlobal::Klogic::VERSION_STR = "5.0.0 2018-09-25";
+const char *KlogicGlobal::Klogic::VERSION = "5.0.0";
 
 // unique-id counter
 int uniqueID::id = 0;
