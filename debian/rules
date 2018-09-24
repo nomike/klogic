@@ -11,20 +11,12 @@ else
   COMPILER_FLAGS += CFLAGS="-O2 -g -Wall"
 endif
 
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-	# configure the package
-	$(COMPILER_FLAGS) \
-	./configure --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info --disable-rpath
-
-	touch configure-stamp
-
-build: configure-stamp build-stamp
+build: build-stamp
 build-stamp:
 	dh_testdir
 
 	# compile the package
+	cmake -DCMAKE_INSTALL_PREFIX=$(CURDIR)/debian/klogic/usr -DCMAKE_BUILD_TYPE=Release .
 	$(MAKE)
 	/usr/bin/docbook-to-man debian/klogic.sgml > klogic.1
 
@@ -36,7 +28,7 @@ clean:
 	rm -f build-stamp configure-stamp
 
 	# clean up after the build process.
-	[ ! -f Makefile ] || $(MAKE) distclean
+	[ ! -f Makefile ] || $(MAKE) clean
 	rm -f klogic/.deps/*
 	rm -rf autom4te.cache
 
@@ -58,9 +50,9 @@ install: build
 	$(MAKE) install prefix=$(CURDIR)/debian/klogic/usr
 	chrpath -d debian/klogic/usr/bin/klogic
 	mkdir -p debian/klogic/usr/share/applications
-	cp klogic/klogic.desktop debian/klogic/usr/share/applications
+	cp src/klogic.desktop debian/klogic/usr/share/applications
 	mkdir -p debian/klogic/usr/share/pixmaps
-	cp pics/klogic.xpm debian/klogic/usr/share/pixmaps
+	cp deviceIcons/klogic.xpm debian/klogic/usr/share/pixmaps
 
 # Build architecture-independent files
 binary-indep: build install
@@ -83,11 +75,11 @@ binary-arch: build install
 	dh_installman klogic.1
 #	dh_installinfo
 #	dh_undocumented
-	dh_installchangelogs ChangeLog
-	mkdir $(CURDIR)/debian/klogic/usr/share/doc/kde
-	mv $(CURDIR)/debian/klogic/usr/share/doc/HTML $(CURDIR)/debian/klogic/usr/share/doc/kde
-	rm $(CURDIR)/debian/klogic/usr/share/doc/kde/HTML/en/klogic/common
-	rm $(CURDIR)/debian/klogic/usr/share/doc/klogic/changelog
+#	dh_installchangelogs ChangeLog
+#	mkdir $(CURDIR)/debian/klogic/usr/share/doc/kde
+#	mv $(CURDIR)/debian/klogic/usr/share/doc/HTML $(CURDIR)/debian/klogic/usr/share/doc/kde
+#	rm $(CURDIR)/debian/klogic/usr/share/doc/kde/HTML/en/klogic/common
+#	rm $(CURDIR)/debian/klogic/usr/share/doc/klogic/changelog
 	dh_link
 ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
 	dh_strip

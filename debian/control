@@ -1,10 +1,10 @@
 Source: klogic
 Section: electronics
 Priority: optional
-Maintainer: Chris Boyle <cmb@debian.org>
-Build-Depends: debhelper (>= 7), kdelibs4-dev (>= 4:3.1.2-2), docbook-to-man, autotools-dev, chrpath
+Maintainer: nomike <nomike@nomike.com>
+Build-Depends: debhelper (>= 7), libkf5kdelibs4support-dev (>= 5.44.0), docbook-to-man, autotools-dev, chrpath, extra-cmake-modules
 Standards-Version: 3.8.3.0
-Homepage: http://www.a-rostin.de/
+Homepage: http://nomike.com
 
 Package: klogic
 Architecture: any

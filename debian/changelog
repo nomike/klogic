@@ -1,3 +1,9 @@
+klogic (5.0) unstable; urgency=low
+
+  * Port to KDE5
+
+ -- nomike <nomike@nomike.com>  Tue, 25 Sep 2018 00:43:27 +0200
+
 klogic (1.63-6) unstable; urgency=low
 
   * Fix FTBFS with GCC 4.4 and eglibc 2.10, thanks Simon Olofsson
