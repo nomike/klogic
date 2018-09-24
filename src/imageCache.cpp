@@ -1,5 +1,6 @@
 
 #include <KStandardDirs>
+#include <kglobal.h>
 #include <QDebug>
 
 #include "imageCache.h"

@@ -42,7 +42,7 @@ PropSwitch::PropSwitch(QWidget *parent, const QString &name, Circuit *_dnet, XDe
     label0->setText(i18n("Name"));
     devname = new KLineEdit(this);
     devname->setGeometry(80, 10, 110, 20);
-    devname->setEnabled(FALSE);
+    devname->setEnabled(false);
     devname->setText(dev->getName());
 
     bgType = new QGroupBox(i18n("select type"), this);
@@ -62,15 +62,15 @@ PropSwitch::PropSwitch(QWidget *parent, const QString &name, Circuit *_dnet, XDe
     else rbLow->setChecked(true);
 
     if (dev->isToggle()) {
-        rbPushButton->setChecked(TRUE);
+        rbPushButton->setChecked(true);
     } else {
-        rbSwitch->setChecked(TRUE);
+        rbSwitch->setChecked(true);
         bgStartVal->setEnabled(false);
     }
 
     bOK = new QPushButton(this);
     bOK->setGeometry(50, 120, 60, 20);
-    bOK->setDefault(TRUE);
+    bOK->setDefault(true);
     bOK->setText(i18n("OK"));
 
     bCancel = new QPushButton(this);

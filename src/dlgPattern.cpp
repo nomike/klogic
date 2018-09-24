@@ -16,7 +16,7 @@
 #include <qradiobutton.h>
 #include <qmessagebox.h>
 #include <qpainter.h>
-#include <qwmatrix.h>
+//#include <qwmatrix.h>
 
 #include <KlogicGlobal.h>
 
@@ -44,7 +44,7 @@ DlgPattern::DlgPattern(QWidget *parent, QString caption, QString sEquation)
 	rbSubjunctive = new QRadioButton(bgNType);
 	rbSubjunctive->setGeometry(5, 5, 100, 20);
 	rbSubjunctive->setText(i18n("subjunctive"));
-	rbSubjunctive->setChecked(TRUE);
+	rbSubjunctive->setChecked(true);
 	rbDisjunctive = new QRadioButton(bgNType);
 	rbDisjunctive->setGeometry(5, 25, 100, 20);
 	rbDisjunctive->setText(i18n("disjunctive"));
@@ -54,7 +54,7 @@ DlgPattern::DlgPattern(QWidget *parent, QString caption, QString sEquation)
 	rbSecure = new QRadioButton(bgNSecurity);
 	rbSecure->setGeometry(5, 5, 100, 20);
 	rbSecure->setText(i18n("secure"));
-	rbSecure->setChecked(TRUE);
+	rbSecure->setChecked(true);
 	rbInsecure = new QRadioButton(bgNSecurity);
 	rbInsecure->setGeometry(5, 25, 100, 20);
 	rbInsecure->setText(i18n("insecure"));
@@ -185,7 +185,7 @@ bool KarnaughWidget::drawTable()
 			p.drawLine(90, 150, 200, 150);
 			p.drawLine(150, 90, 150, 200);
 			p.drawText(110, 94, vInputNames[0]);
-			p.setWorldMatrix(m_rot, TRUE);
+			p.setWorldMatrix(m_rot, true);
 			p.drawText(-140, 94, vInputNames[1]);
 			p.end();
 			break;
@@ -202,7 +202,7 @@ bool KarnaughWidget::drawTable()
 
 			p.drawText(110, 94, vInputNames[0]);
 			p.drawText(160, 210, vInputNames[1]);
-			p.setWorldMatrix(m_rot, TRUE);
+			p.setWorldMatrix(m_rot, true);
 			p.drawText(-140, 94, vInputNames[2]);
 			p.end();
 			break;
@@ -260,7 +260,7 @@ void KarnaughWidget::drawQuadTable(int x, int y)
 	p.drawText(x + 10, y - 6, vInputNames[0]);		// b Q1 top
 	p.drawText(x + 60, y + 210, vInputNames[2]);		// a Q3 bottom
 
-	p.setWorldMatrix(m_rot, TRUE);
+	p.setWorldMatrix(m_rot, true);
 	if (x == 400 && y == 400) {
 		QString s = vInputNames[5];
 		s += " = 1";

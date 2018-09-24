@@ -56,11 +56,11 @@ PropOsz::PropOsz(QWidget *parent, const QString &name, Circuit *_dnet, XDevice *
 	cb_type = new QCheckBox(i18n("Monoflop"), this);
 	cb_type->setGeometry(105, 100, 90, 15);
 	if (dev->getOscType() == OscillatorDevice::TYPE_MONO) {
-		cb_type->setChecked(TRUE);
-		offCnt->setEnabled(FALSE);
+		cb_type->setChecked(true);
+		offCnt->setEnabled(false);
 	} else {
-		cb_type->setChecked(FALSE);
-		offCnt->setEnabled(TRUE);
+		cb_type->setChecked(false);
+		offCnt->setEnabled(true);
 	}
 
 	//******************************************************
@@ -120,7 +120,7 @@ void PropOsz::done(int r)
 
 void PropOsz::mono()
 {
-	if (cb_type->isChecked()) offCnt->setEnabled(FALSE);
-	else offCnt->setEnabled(TRUE);
+	if (cb_type->isChecked()) offCnt->setEnabled(false);
+	else offCnt->setEnabled(true);
 
 }

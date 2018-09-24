@@ -260,7 +260,7 @@ bool Wire::createNode()
       }
 
       // somewhat in between the wire..
-      return FALSE;
+      return false;
 }
 
 // locks point by content: used for import only!
@@ -279,7 +279,7 @@ bool Wire::lockNode(QPoint pt)
         return lockNode(l);
     }
 
-    return FALSE;
+    return false;
 }
 
 // lock a node
@@ -378,7 +378,7 @@ bool Wire::checkWireWireConnection(QPoint *pt)
 
         // never connect input- or output nodes!
         if (nodeIsInput(ownNode) != WFAIL || nodeIsOutput(ownNode) != WFAIL) {
-            return FALSE;
+            return false;
         }
 
 		// insert foreign node, append foreign one before the own node
@@ -411,7 +411,7 @@ bool Wire::checkWireWireConnection(QPoint *pt)
         l1 = l2;
         l2 = l2->Next();
     }
-    return FALSE;
+    return false;
 }
 
 // internal: derivation pt1:pt2 ~= pt1:pt?

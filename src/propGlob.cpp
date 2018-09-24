@@ -61,13 +61,13 @@ PropGlob::PropGlob(QWidget *parent, const QString &name, CircuitWidget *_netw)
 
     cb_display_name = new QCheckBox(i18n("Display Name"), gb_dev);
     cb_display_name->setGeometry(5, 65, 160, 15);
-    if (KlogicGlobal::Device::isDisplayNames()) cb_display_name->setChecked(TRUE);
-    else cb_display_name->setChecked(FALSE);
+    if (KlogicGlobal::Device::isDisplayNames()) cb_display_name->setChecked(true);
+    else cb_display_name->setChecked(false);
 
     cb_ext_width = new QCheckBox(i18n("Large Sub Circuit Width"), gb_dev);
     cb_ext_width->setGeometry(5, 85, 180, 15);
-    if (KlogicGlobal::Device::getWidth() == 3) cb_ext_width->setChecked(TRUE);
-    else cb_ext_width->setChecked(FALSE);
+    if (KlogicGlobal::Device::getWidth() == 3) cb_ext_width->setChecked(true);
+    else cb_ext_width->setChecked(false);
 
     bg_invert = new QGroupBox(i18n("Outputs Inverted"), gb_dev);
     bg_invert->setGeometry(10, 110, 180, 60);
@@ -77,9 +77,9 @@ PropGlob::PropGlob(QWidget *parent, const QString &name, CircuitWidget *_netw)
     invert[1]->setGeometry(10, 40, 160, 15);
     curr_invert = KlogicGlobal::Device::isInverted();
     if (curr_invert)
-        invert[1]->setChecked(TRUE);
+        invert[1]->setChecked(true);
     else
-        invert[0]->setChecked(TRUE);
+        invert[0]->setChecked(true);
 
     bg_undef = new QGroupBox(i18n("Undefined value"), gb_dev);
     bg_undef->setGeometry(10, 180, 180, 60);
@@ -89,9 +89,9 @@ PropGlob::PropGlob(QWidget *parent, const QString &name, CircuitWidget *_netw)
     undef[1]->setGeometry(10, 40, 160, 15);
     curr_undef = KlogicGlobal::Device::getUndefinedValue();
     if (curr_undef)
-        undef[1]->setChecked(TRUE);
+        undef[1]->setChecked(true);
     else
-        undef[0]->setChecked(TRUE);
+        undef[0]->setChecked(true);
 
     // font type and size
     QLabel *l1 = new QLabel(gb_dev);
@@ -172,7 +172,7 @@ PropGlob::PropGlob(QWidget *parent, const QString &name, CircuitWidget *_netw)
     clock[3] = new QRadioButton(i18n("Low value"), bg_clock);
     clock[3]->setGeometry(10,80, 180, 15);
     curr_clk = KlogicGlobal::Device::getClock();
-    clock[curr_clk]->setChecked(TRUE);
+    clock[curr_clk]->setChecked(true);
 
 //<---
 
@@ -210,9 +210,9 @@ PropGlob::PropGlob(QWidget *parent, const QString &name, CircuitWidget *_netw)
     klogic_ftype = new QRadioButton(i18n("old format"), bg_ftype);
     klogic_ftype->setGeometry(10,40, 100, 15);
     if (FileIO::getSaveFileFormat() == FileIO::SAVE_XML)
-        xml_ftype->setChecked(TRUE);
+        xml_ftype->setChecked(true);
     else
-        klogic_ftype->setChecked(TRUE);
+        klogic_ftype->setChecked(true);
 //<---
 
     bCancel = new QPushButton(this);
@@ -225,7 +225,7 @@ PropGlob::PropGlob(QWidget *parent, const QString &name, CircuitWidget *_netw)
 
     bOK = new QPushButton(this);
     bOK->setGeometry(50, 430, 90, 20);
-    bOK->setDefault(TRUE);
+    bOK->setDefault(true);
     bOK->setText(i18n("OK"));
 
     setFixedSize(430, 470);

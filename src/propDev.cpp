@@ -54,7 +54,7 @@ PropDev::PropDev(QWidget *parent, const QString& name,
 	label->setGeometry(COL1 + 5, 10, 43, 20);
 	label->setText(i18n("Name"));
 	devname = new KLineEdit(this);
-	devname->setEnabled(TRUE);
+	devname->setEnabled(true);
 
 	label = new QLabel(this);
 	label->setText(i18n("Size"));
@@ -62,7 +62,7 @@ PropDev::PropDev(QWidget *parent, const QString& name,
 	QIntValidator *vSize = new QIntValidator(size);
 	size->setValidator(vSize);
 	if (!dev->sizeChangeable()) {
-		size->setEnabled(FALSE);
+		size->setEnabled(false);
 	}
 	label->setGeometry(COL1 + 5, 40, 32, 20);
 	size->setGeometry(COL12, 40, 40, 20);
@@ -86,9 +86,9 @@ PropDev::PropDev(QWidget *parent, const QString& name,
 		cb_display_name = new QCheckBox(i18n("display name"), this);
 		cb_display_name->setGeometry(COL2, 40, 100, 20);
 		if (dev->nameDisplayed()) {
-			cb_display_name->setChecked(TRUE);
+			cb_display_name->setChecked(true);
 		} else {
-			cb_display_name->setChecked(FALSE);
+			cb_display_name->setChecked(false);
 		}
 	}
 
@@ -97,9 +97,9 @@ PropDev::PropDev(QWidget *parent, const QString& name,
 		cb_HugeWidth = new QCheckBox(i18n("Large Width"), this);
 		cb_HugeWidth->setGeometry(COL2, 70, 100, 20);
 		if (dev->width() == 3) {
-			cb_HugeWidth->setChecked(TRUE);
+			cb_HugeWidth->setChecked(true);
 		} else {
-			cb_HugeWidth->setChecked(FALSE);
+			cb_HugeWidth->setChecked(false);
 		}
 	}
 
@@ -133,7 +133,7 @@ PropDev::PropDev(QWidget *parent, const QString& name,
 		connect	(muxChooser, SIGNAL(valueChosen(int)), this, SLOT(setMux(int)));
 
 		if (dev->type() == DeviceType::fONE || dev->getMaxOutputCount() == 0) {
-			muxChooser->setEnabled(FALSE);
+			muxChooser->setEnabled(false);
 		}
 	}
 
@@ -155,7 +155,7 @@ PropDev::PropDev(QWidget *parent, const QString& name,
 		inverterDefaultChooser = new ValueChooser(this, "Output always inverted", nameList, (int)dev->isInverted());
 		inverterDefaultChooser->setGeometry(COL1, 180, 150, 80);
 		if (dev->type() == DeviceType::fONE || dev->getMaxOutputCount() == 0) {
-			inverterDefaultChooser->setEnabled(FALSE);
+			inverterDefaultChooser->setEnabled(false);
 		}
 	}
 
@@ -164,9 +164,9 @@ PropDev::PropDev(QWidget *parent, const QString& name,
 		cb_enable_tristate = new QCheckBox(i18n("Tristate outputs"), this);
 		cb_enable_tristate->setGeometry(COL1, 265, 150, 25);
 		if (dev->isDeviceTristateEnabled())
-			cb_enable_tristate->setChecked(TRUE);
+			cb_enable_tristate->setChecked(true);
 		else
-			cb_enable_tristate->setChecked(FALSE);
+			cb_enable_tristate->setChecked(false);
 	}
 
 	if (dev->type() == DeviceType::fEQU) {

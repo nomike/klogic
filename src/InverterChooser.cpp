@@ -23,6 +23,7 @@
 #include <qpixmap.h>
 #include <qscrollbar.h>
 #include <qlabel.h>
+#include <QGroupBox>
 
 #include "InverterChooser.h"
 #include "xdevice.h"

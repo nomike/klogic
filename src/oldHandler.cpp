@@ -346,7 +346,7 @@ bool XDevice::string2device(QString s, int dx, int dy)
 			}
 			QString dev_id_string = xs.mid(apos, epos - apos);
 			dev_id = dev_id_string.toInt(&id_flag);
-			if (id_flag == FALSE) dev_id = 0;
+			if (id_flag == false) dev_id = 0;
 
 
 			apos = epos + 1;
@@ -401,7 +401,7 @@ bool XDevice::string2device(QString s, int dx, int dy)
 			}
 			QString dev_id_string = xs.mid(apos, epos - apos);
 			dev_id = dev_id_string.toInt(&id_flag);
-			if (id_flag == FALSE) dev_id = 0;
+			if (id_flag == false) dev_id = 0;
 
 			apos = epos + 1;
 			epos = xs.indexOf(DLM, apos);
@@ -468,7 +468,7 @@ bool XDevice::string2device(QString s, int dx, int dy)
 			}
 			QString dev_id_string = xs.mid(apos, epos - apos);
 			dev_id = dev_id_string.toInt(&id_flag);
-			if (id_flag == FALSE) dev_id = 0;
+			if (id_flag == false) dev_id = 0;
 
 			apos = epos + 1;
 			epos = xs.indexOf(DLM, apos);

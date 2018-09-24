@@ -25,6 +25,7 @@
 #include <KXmlGuiWindow>
 #include <qlabel.h>
 #include <qcombobox.h>
+#include <qprinter.h>
 
 #include "ScrollableCircuitWidget.h"
 #include "klogicList.h"

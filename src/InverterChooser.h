@@ -1,5 +1,6 @@
 #ifndef __DEVW_CLASS
 #define __DEVW_CLASS
+#include <QGroupBox>
 
 class QWidget;
 class QPaintEvent;

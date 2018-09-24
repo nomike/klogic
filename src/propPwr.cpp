@@ -34,7 +34,7 @@ PropPwr::PropPwr(QWidget *parent, const QString &name, Circuit *_dnet, XDevice *
 	label0->setText(i18n("Name"));
 	devname = new KLineEdit(this);
 	devname->setGeometry(80, 10, 110, 20);
-	devname->setEnabled(FALSE);
+	devname->setEnabled(false);
 	devname->setText(dev->getName());
 
 	bgPwr = new QGroupBox(i18n("output value"), this);
@@ -43,8 +43,8 @@ PropPwr::PropPwr(QWidget *parent, const QString &name, Circuit *_dnet, XDevice *
 	rbPlus->setGeometry(10,20, 100, 15);
 	rbMinus = new QRadioButton(i18n("Low"), bgPwr);
 	rbMinus->setGeometry(10,40, 100, 15);
-	if (dev->output()) rbPlus->setChecked(TRUE);
-	else rbMinus->setChecked(TRUE);
+	if (dev->output()) rbPlus->setChecked(true);
+	else rbMinus->setChecked(true);
 
 	bCancel = new QPushButton(this);
 	bCancel->setGeometry(130, 120, 60, 30);
@@ -52,7 +52,7 @@ PropPwr::PropPwr(QWidget *parent, const QString &name, Circuit *_dnet, XDevice *
 
 	bOK = new QPushButton(this);
 	bOK->setGeometry(20, 120, 60, 30);
-	bOK->setDefault(TRUE);
+	bOK->setDefault(true);
 	bOK->setText(i18n("OK"));
 
 	setFixedSize(210, 170);

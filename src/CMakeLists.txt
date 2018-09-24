@@ -9,11 +9,11 @@ device.cpp         deviceTFF.cpp      grid.cpp        Operator.cpp      propText
 ValueChooser.cpp   OscContentWidget.cpp OscChannel.cpp Simulator.cpp    SimulatorThread.cpp
 )
 
-kde4_add_ui_files(klogic_SRCS NetWidget.ui)
+QT5_WRAP_UI(klogic_SRCS NetWidget.ui)
 
-kde4_add_kcfg_files(klogic_SRCS settings.kcfgc )
+kconfig_add_kcfg_files(klogic_SRCS settings.kcfgc )
 
-kde4_add_executable(klogic ${klogic_SRCS})
+add_executable(klogic ${klogic_SRCS})
 
 target_link_libraries(klogic ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
 
@@ -22,6 +22,8 @@ install(TARGETS klogic ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
-install( PROGRAMS klogic.desktop  DESTINATION ${KDE4_XDG_APPS_INSTALL_DIR} )
-install( FILES klogic.kcfg  DESTINATION  ${KDE4_KCFG_INSTALL_DIR} )
-install( FILES klogic4ui.rc  DESTINATION  ${KDE4_DATA_INSTALL_DIR}/klogic )
+# KDE_INSTALL_DATAROOTDIR
+
+install( PROGRAMS klogic.desktop  DESTINATION ${XDG_APPS_INSTALL_DIR} )
+install( FILES klogic.kcfg  DESTINATION  ${KCFG_INSTALL_DIR} )
+install( FILES klogic4ui.rc  DESTINATION  ${DATA_INSTALL_DIR}/klogic )

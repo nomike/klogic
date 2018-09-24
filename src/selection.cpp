@@ -293,7 +293,7 @@ void Selection::cut(Circuit *poCircuit)
 	}
 
 	// ** remove current selection
-	remove(FALSE);
+	remove(false);
 }
 
 // copy selection into the copy-buffer
@@ -346,7 +346,7 @@ void Selection::at(QPoint pt)
 void Selection::paste(Circuit *poCircuit)
 {
 	// ** remove the current selection
-	remove(TRUE);
+	remove(true);
 
 	// ** paste content of the copy_buffer
 	// ++ all pasted objects automaticly become status "selected"

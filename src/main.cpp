@@ -21,17 +21,18 @@
 #include "KlogicGlobal.h"
 
 #include <KDE/KApplication>
-#include <KDE/KAboutData>
+//#include <KDE/KAboutData>
 #include <KDE/KCmdLineArgs>
 #include <KDE/KLocale>
+#include <K4AboutData>
 
 static const char description[] =
     I18N_NOOP("KLogic is an application for creating and simulating digital circuits.");
 
 int main(int argc, char **argv)
 {
-    KAboutData about("klogic", 0, ki18n("KLogic"), KlogicGlobal::Klogic::VERSION, ki18n(description),
-                     KAboutData::License_GPL, ki18n("(C) 2011 Andreas Rostin"), KLocalizedString(), 0, "klogic@a-rostin.de");
+    K4AboutData about("klogic", 0, ki18n("KLogic"), KlogicGlobal::Klogic::VERSION, ki18n(description),
+                     K4AboutData::License_GPL, ki18n("(C) 2011 Andreas Rostin"), KLocalizedString(), 0, "klogic@a-rostin.de");
     about.addAuthor(ki18n("Andreas Rostin"), KLocalizedString(), "klogic@a-rostin.de" );
     KCmdLineArgs::init(argc, argv, &about);
 

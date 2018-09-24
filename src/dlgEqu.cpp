@@ -129,19 +129,19 @@ void DlgEqu::createDialogContent(QString _caption)
     bNew = new QPushButton((QWidget *)this);
     bNew->setGeometry(205, 335, 45, 25);
     bNew->setText(i18n("Add"));
-    bNew->setEnabled(TRUE);
+    bNew->setEnabled(true);
 
     bDelete = new QPushButton((QWidget *)this);
     bDelete->setGeometry(260, 335, 55, 25);
     bDelete->setText(i18n("Delete"));
-    bDelete->setEnabled(TRUE);
+    bDelete->setEnabled(true);
 
     bgNormalize_s = new QGroupBox(this);
     bgNormalize_s->setGeometry(325, 315, 110, 75);
     rbSubjunctive_s = new QRadioButton(bgNormalize_s);
     rbSubjunctive_s->setGeometry(5, 5, 100, 20);
     rbSubjunctive_s->setText(i18n("subjunctive"));
-    rbSubjunctive_s->setChecked(TRUE);
+    rbSubjunctive_s->setChecked(true);
     rbDisjunctive_s = new QRadioButton(bgNormalize_s);
     rbDisjunctive_s->setGeometry(5, 25, 100, 20);
     rbDisjunctive_s->setText(i18n("disjunctive"));
@@ -175,7 +175,7 @@ void DlgEqu::createDialogContent(QString _caption)
     bCollect = new QPushButton((QWidget *)this);
     bCollect->setGeometry(610, 66, 110, 20);
     bCollect->setText(i18n("Tidy Up"));
-    bCollect->setEnabled(FALSE);
+    bCollect->setEnabled(false);
 
     bgReplace = new QGroupBox((QWidget *)this);
     bgReplace->setGeometry(610, 100, 110, 80);
@@ -192,14 +192,14 @@ void DlgEqu::createDialogContent(QString _caption)
     rbSubjunctive = new QRadioButton(bgNormalize);
     rbSubjunctive->setGeometry(5, 5, 100, 20);
     rbSubjunctive->setText(i18n("subjunctive"));
-    rbSubjunctive->setChecked(TRUE);
+    rbSubjunctive->setChecked(true);
     rbDisjunctive = new QRadioButton(bgNormalize);
     rbDisjunctive->setGeometry(5, 25, 100, 20);
     rbDisjunctive->setText(i18n("disjunctive"));
     bNormalize = new QPushButton(bgNormalize);
     bNormalize->setGeometry(5, 50, 100, 20);
     bNormalize->setText(i18n("Normalize"));
-    bNormalize->setEnabled(FALSE);
+    bNormalize->setEnabled(false);
 
     bRestore = new QPushButton(this);
     bRestore->setGeometry(610, 285, 110, 20);
@@ -425,11 +425,11 @@ void DlgEqu::editEquation(int selectedIndex)
 
 		// display new edit box label
 		if (ls->Get()->output_type == KlogicGlobal::Device::INTERNAL_OUTPUT) {
-			rbInternal->setChecked(TRUE);
+			rbInternal->setChecked(true);
 		} else if (ls->Get()->output_type == KlogicGlobal::Device::FINAL_OUTPUT) {
-			rbFinal->setChecked(TRUE);
+			rbFinal->setChecked(true);
 		} else {
-			rbTemp->setChecked(TRUE);
+			rbTemp->setChecked(true);
 		}
 		edit_output_name->setText(ls->Get()->output_name);
 	} else {
@@ -716,9 +716,9 @@ void DlgEqu::parseCircuit()
 
 	fillList();
 
-	bSubst->setEnabled(TRUE);
-	bNormalize->setEnabled(FALSE);
-	bCollect->setEnabled(FALSE);
+	bSubst->setEnabled(true);
+	bNormalize->setEnabled(false);
+	bCollect->setEnabled(false);
 	editEquationCancel();
 }
 
@@ -756,9 +756,9 @@ void DlgEqu::collectEquations()
 
 	fillList();
 
-	bSubst->setEnabled(FALSE);
-	bNormalize->setEnabled(FALSE);
-	bCollect->setEnabled(FALSE);
+	bSubst->setEnabled(false);
+	bNormalize->setEnabled(false);
+	bCollect->setEnabled(false);
 	editEquationCancel();
 
 }
@@ -868,8 +868,8 @@ int DlgEqu::substituteEquations()
 	fillList();
 
 	if (!changed) {
-		bNormalize->setEnabled(TRUE);
-		bCollect->setEnabled(TRUE);
+		bNormalize->setEnabled(true);
+		bCollect->setEnabled(true);
 	}
 	editEquationCancel();
 	return changed;

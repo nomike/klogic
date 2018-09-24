@@ -248,14 +248,14 @@ void Circuit::setHasBooleanOutput(int output_id, bool bHasBooleanInput)
 
 bool Circuit::garbageCollection()
 {
-    bool retCode = FALSE;
+    bool retCode = false;
     KlogicList<XWire> *lw = wires.First();
 
     while (lw) {
         lw->Get()->Wire::garbageCollection();
         if (!wireOK(lw->Get())) {
             lw = wires.First();
-	    retCode = TRUE;
+	    retCode = true;
         } else {
             lw = lw->Next();
         }
@@ -564,9 +564,9 @@ bool Circuit::wireOK(XWire *w)
         // remove nodeless wire
         wires.Destroy(w);
         delete w;
-        return FALSE;
+        return false;
     }
-    return TRUE;
+    return true;
 }
 
 // wire released after clicked with the mouse
@@ -575,9 +575,9 @@ bool Circuit::releaseWire(XWire *w)
     w->Wire::garbageCollection();
 
     // check, that wire has at leat two nodes
-    if (!wireOK(w)) return FALSE;
+    if (!wireOK(w)) return false;
     w->releaseNode();
-    return TRUE;
+    return true;
 }
 
 // delete wire

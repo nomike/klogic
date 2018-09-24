@@ -31,6 +31,8 @@
 
 #include <KConfigDialog>
 #include <KStatusBar>
+#include <KUrl>
+#include <KIcon>
 
 #include <KAction>
 #include <KActionCollection>

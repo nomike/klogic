@@ -2,6 +2,9 @@
 #define __CLIENTWCLASS
 
 #include<qwidget.h>
+#include <QToolBar>
+
+class ScrollableCircuitWidget;
 
 //************ class *************
 class ClientWidget : public QWidget
