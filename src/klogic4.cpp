@@ -201,7 +201,7 @@ void klogic4::setupActions()
     // Iterations are not welcome here somehow.. Always the same stupid code.. And grouping by hand??
     QActionGroup *functionActionGroup = new QActionGroup(this);
     action = new KAction(KIcon("klogic4-fSELECT"), i18n("&Selection Mode"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_S);
+    //action->setShortcut(Qt::CTRL + Qt::Key_S);
     action->setToolTip("Select, copy and paste groups of devices and wires.");
     action->setCheckable(true);
     actionCollection()->addAction("actionSelectionMode", action);
@@ -209,7 +209,7 @@ void klogic4::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(selectionMode()));
 
     action = new KAction(KIcon("klogic4-fCONNECT"), i18n("&Connection Mode"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_C);
+    action->setShortcut(Qt::Key_C);
     action->setToolTip("Connect devices using wires.");
     action->setCheckable(true);
     actionCollection()->addAction("actionConnectionMode", action);
@@ -219,7 +219,7 @@ void klogic4::setupActions()
     connectionMode();
     
     action = new KAction(KIcon("klogic4-fEQUATION"), i18n("&Equation"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_E);
+    action->setShortcut(Qt::Key_E);
     action->setToolTip("Equation device with boolean algebra formulas.");
     action->setCheckable(true);
     actionCollection()->addAction("actionfEQuation", action);
@@ -227,7 +227,7 @@ void klogic4::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fEQUATION()));
 
     devANDAction = new KAction(KIcon("klogic4-fAND"), i18n("&AND"), this);
-    devANDAction->setShortcut(Qt::CTRL + Qt::Key_A);
+    devANDAction->setShortcut(Qt::Key_A);
     devANDAction->setToolTip("AND device. Output becomes true if all inputs are true.");
     devANDAction->setCheckable(true);
     actionCollection()->addAction("actionfAND", devANDAction);
@@ -235,7 +235,7 @@ void klogic4::setupActions()
     connect(devANDAction, SIGNAL(triggered(bool)), this, SLOT(fAND()));
 
     action = new KAction(KIcon("klogic4-fNAND"), i18n("&NAND"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_N);
+    action->setShortcut(Qt::Key_N);
     action->setToolTip("NAND device. Output becomes false if all inputs are true.");
     action->setCheckable(true);
     actionCollection()->addAction("actionfNAND", action);
@@ -243,7 +243,7 @@ void klogic4::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fNAND()));
 
     action = new KAction(KIcon("klogic4-fOR"), i18n("&OR"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_O);
+    action->setShortcut(Qt::Key_O);
     action->setToolTip("OR device. Output becomes true if one or more inputs are true.");
     action->setCheckable(true);
     actionCollection()->addAction("actionfOR", action);
@@ -258,7 +258,7 @@ void klogic4::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fNOR()));
 
     action = new KAction(KIcon("klogic4-fXOR"), i18n("&XOR"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_X);
+    action->setShortcut(Qt::Key_X);
     action->setToolTip("XOR device. Output becomes true if exactly one input is true.");
     action->setCheckable(true);
     actionCollection()->addAction("actionfXOR", action);
@@ -266,7 +266,7 @@ void klogic4::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fXOR()));
 
     action = new KAction(KIcon("klogic4-fNOT"), i18n("&Inverter"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_I);
+    action->setShortcut(Qt::Key_I);
     action->setToolTip("NOT device. Output becomes true if input is false.");
     action->setCheckable(true);
     actionCollection()->addAction("actionfNOT", action);
@@ -274,35 +274,35 @@ void klogic4::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fNOT()));
 
     action = new KAction(KIcon("klogic4-fRS.png"), i18n("&RS flipflop"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_R);
+    action->setShortcut(Qt::Key_R);
     action->setCheckable(true);
     actionCollection()->addAction("actionfRS", action);
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fRS()));
 
     action = new KAction(KIcon("klogic4-fJK.png"), i18n("&JK flipflop"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_J);
+    action->setShortcut(Qt::Key_J);
     action->setCheckable(true);
     actionCollection()->addAction("actionfJK", action);
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fJK()));
 
     action = new KAction(KIcon("klogic4-fDFF.png"), i18n("&D flipflop"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_D);
+    action->setShortcut(Qt::Key_D);
     action->setCheckable(true);
     actionCollection()->addAction("actionfDFF", action);
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fDFF()));
 
     action = new KAction(KIcon("klogic4-fTFF.png"), i18n("&T flipflop"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_T);
+    action->setShortcut(Qt::Key_T);
     action->setCheckable(true);
     actionCollection()->addAction("actionfTFF", action);
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fTFF()));
 
     action = new KAction(KIcon("klogic4-fRAM.png"), i18n("RA&M 32x8"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_M);
+    action->setShortcut(Qt::Key_M);
     action->setCheckable(true);
     actionCollection()->addAction("actionfRAM", action);
     functionActionGroup->addAction(action);
@@ -321,35 +321,35 @@ void klogic4::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fBUS()));
 
     action = new KAction(KIcon("klogic4-fOSC.png"), i18n("Os&cillator"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_C);
+    action->setShortcut(Qt::Key_C);
     action->setCheckable(true);
     actionCollection()->addAction("actionfOSC", action);
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fOSC()));
 
     action = new KAction(KIcon("klogic4-fSWI.png"), i18n("&Switch"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_S);
+    action->setShortcut(Qt::Key_S);
     action->setCheckable(true);
     actionCollection()->addAction("actionfSWI", action);
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fSWI()));
 
     action = new KAction(KIcon("klogic4-fSS.png"), i18n("&7-Segment"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_7);
+    action->setShortcut(Qt::Key_7);
     action->setCheckable(true);
     actionCollection()->addAction("actionfSS", action);
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fSS()));
 
     action = new KAction(KIcon("klogic4-fLED.png"), i18n("&LED"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_L);
+    action->setShortcut(Qt::Key_L);
     action->setCheckable(true);
     actionCollection()->addAction("actionfLED", action);
     functionActionGroup->addAction(action);
     connect(action, SIGNAL(triggered(bool)), this, SLOT(fLED()));
 
     action = new KAction(KIcon("klogic4-fPWR.png"), i18n("&Voltage Connector"), this);
-    action->setShortcut(Qt::CTRL + Qt::Key_V);
+    action->setShortcut(Qt::Key_V);
     action->setCheckable(true);
     actionCollection()->addAction("actionfPWR", action);
     functionActionGroup->addAction(action);
@@ -385,7 +385,7 @@ void klogic4::setupActions()
     functionActionGroup->addAction(fOUTAction);
 
     openOscilloscopeAction = new KAction(KIcon("klogic4-Oscilloscope"), i18n("&Oscilloscope"), this);
-    openOscilloscopeAction->setShortcut(Qt::CTRL + Qt::Key_O);
+//    openOscilloscopeAction->setShortcut(Qt::Key_O);
     openOscilloscopeAction->setToolTip("Open oscilloscope window.");
     openOscilloscopeAction->setCheckable(true);
     actionCollection()->addAction("actionOscilloscope", openOscilloscopeAction);
@@ -397,13 +397,13 @@ void klogic4::setupActions()
     connect(action, SIGNAL(triggered(bool)), this, SLOT(openLibraryMaintenance()));
 
     simStepByStepAction = new KAction(KIcon("klogic4-SingleStep"), i18n("&Single Simulation Step (Press S-Key)"), this);
-    simStepByStepAction->setShortcut(Qt::Key_S);
+//    simStepByStepAction->setShortcut(Qt::Key_S);
     simStepByStepAction->setCheckable(true);
     actionCollection()->addAction("actionSingleStep", simStepByStepAction);
     connect(simStepByStepAction, SIGNAL(triggered(bool)), this, SLOT(setSimStepByStep()));
 
     simAutoAction = new KAction(KIcon("klogic4-AutoStep"), i18n("&Automatic Simulation Stepping (Press A-Key)"), this);
-    simAutoAction->setShortcut(Qt::Key_A);
+//    simAutoAction->setShortcut(Qt::Key_A);
     simAutoAction->setCheckable(true);
     actionCollection()->addAction("actionAutoStep", simAutoAction);
     connect(simAutoAction, SIGNAL(triggered(bool)), this, SLOT(setSimPermanent()));
